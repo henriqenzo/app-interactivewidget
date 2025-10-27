@@ -45,3 +45,29 @@ struct SetCountIntent: AppIntent {
         return .result()
     }
 }
+
+struct CounterShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] = [
+        AppShortcut(
+            intent: IncreaseCountIntent(),
+            phrases: [
+                "Incrementar valor no \(.applicationName)",
+                "Adicionar valor no \(.applicationName)",
+                "Contar mais um no \(.applicationName)",
+            ],
+            shortTitle: "Incrementar",
+            systemImageName: "plus"
+        ),
+        AppShortcut(
+            intent: SetCountIntent(),
+            phrases: [
+                "Resetar contador no \(.applicationName)",
+                "Reiniciar contador no \(.applicationName)",
+                "Resetar contagem no \(.applicationName)",
+                "Reiniciar contagem no \(.applicationName)"
+            ],
+            shortTitle: "Reiniciar",
+            systemImageName: "arrow.trianglehead.counterclockwise"
+        )
+    ]
+}
